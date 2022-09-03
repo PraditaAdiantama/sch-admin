@@ -29,13 +29,13 @@ class StudentController extends Controller
     
     public function createData(Request $request){
         $this->validate($request,[
-            'nis' => 'require|unique|min:1700|max:1799',
-            'name' => 'require|min:2|max:100',
-            'gender' => 'require',
-            'address' => 'require|max:100',
-            'birth_place' => 'require|max:100',
-            'birth_date' => 'require|date',
-            'class' => 'require|min:10|max:12'
+            'nis' => 'required|unique|min:1700|max:1799',
+            'name' => 'required|min:2|max:100',
+            'gender' => 'required',
+            'address' => 'required|max:100',
+            'birth_place' => 'required|max:100',
+            'birth_date' => 'required|date',
+            'class' => 'required|min:10|max:12'
         ]);
 
         $student = $request->all();
