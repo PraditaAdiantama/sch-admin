@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -28,15 +29,15 @@ class StudentController extends Controller
     }
     
     public function createData(Request $request){
-        $this->validate($request,[
-            'nis' => 'required|min:1700|max:1799',
-            'name' => 'required|min:2|max:100',
-            'gender' => 'required',
-            'address' => 'required|max:100',
-            'birth_place' => 'required|max:100',
-            'birth_date' => 'required|date',
-            'class' => 'required|min:10|max:12'
-        ]);
+        $validate = $request->validate($request,[
+                        'nis' => 'required|min:1700|max:1799',
+                        'name' => 'required|min:2|max:100',
+                        'gender' => 'required',
+                        'address' => 'required|max:100',
+                        'birth_place' => 'required|max:100',
+                        'birth_date' => 'required|date',
+                        'class' => 'required|min:10|max:12'
+                ]);
 
         $student = $request->all();
         
