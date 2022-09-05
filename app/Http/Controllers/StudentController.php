@@ -36,7 +36,7 @@ class StudentController extends Controller
                         'address' => 'required|max:100',
                         'birth_place' => 'required|max:100',
                         'birth_date' => 'required|date',
-                        'class' => 'required|min:10|max:12'
+                        'class' => 'required'
                 ]);
 
         $student = $request->all();

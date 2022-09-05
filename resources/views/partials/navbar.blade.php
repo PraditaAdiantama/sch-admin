@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav  mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link {{ ($title === 'Siswa' ? 'active' : '') }}" href="/students">Siswa</a>
+            <a class="nav-link {{ ($title == 'Siswa' | $title == 'Detail' ? 'active' : '') }}" href="/students">Student</a>
           </li>
         </ul>
       </div>

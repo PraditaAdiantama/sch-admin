@@ -6,14 +6,36 @@
             {{ $message }}
         </div>
     @endif
-    <div class="card">
-        <p>Nis     : {{ $student->nis }}</p>
-        <p>Name    : {{ $student->name }}</p>
-        <p>Gender    : {{ $student->gender }}</p>
-        <p>Address : {{ $student->address }}</p>
-        <p>Birth Place    : {{ $student->birth_place }}</p>
-        <p>Birth Date    : {{ $student->birth_date }}</p>
-        <p>Class   : {{ $student->class }}</p>
+    <h1 class="pb-3">Detail Student</h1>
+    <div class="col-lg-5">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row" class="col-3">Nis </th>
+                    <td>{{ $student->nis }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">Name</th>
+                    <td>{{ $student->name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">address</th>
+                    <td>{{ $student->address }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">Birt Place</th>
+                    <td>{{ $student->birth_place }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">Birt Date</th>
+                    <td>{{ $student->birth_date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="col-2">Class</th>
+                    <td>{{ $student->class }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <a href="/modif/editData/{{ $student->id }}" class="btn btn-primary">Edit</a>
     <a href="/modif/delete/{{ $student->id }}" class="btn btn-danger">Delete</a>
