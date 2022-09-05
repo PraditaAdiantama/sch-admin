@@ -46,7 +46,7 @@
 
 <script>
     setTimeout(() => {
-        $('message').hide();
+        $('nis').hide();
     }, 5000);
 </script>
 @endsection
