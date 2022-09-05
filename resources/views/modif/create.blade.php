@@ -9,7 +9,7 @@
             <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
             @error('nis')
                 <div class="invalid-feedback">
-                    {{ $success }}
+                    {{ $message }}
                 </div>
             @enderror
           </div>
