@@ -7,6 +7,11 @@
         <div class="mb-3">
             <label for="title" class="form-label">Nis</label>
             <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
+            @error('nis')
+                <div class="invalid-feedback">
+                    {{ $success }}
+                </div>
+            @enderror
           </div>
         <div class="mb-3">
           <label for="title" class="form-label">Name</label>
