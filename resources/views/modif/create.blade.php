@@ -44,9 +44,5 @@
       </form>
 </div>
 
-<script>
-    setTimeout(() => {
-        $('nis').hide();
-    }, 5000);
-</script>
+
 @endsection
