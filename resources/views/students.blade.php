@@ -18,8 +18,8 @@
         </div>
         @endforeach
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">        
-            <a href="/modif/create" class="h-100 card border-bottom-0 text-success border-success"> 
-                <h3 class="p-3">Add Students +<h3>
+            <a href="/modif/create" class="card bg-light border border-success d-block text-success h-100"> 
+                <h3 class="p-3 pb-5 ">Add Students +<h3>
             </a>
         </div>
     </div>

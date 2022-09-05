@@ -1,9 +1,10 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="col-lg-8 card m-auto p-4">
+<div class="col-md-4">
     <form action="" method="POST">
         @csrf
+        <h1 class="mb-4">Edit Student</h1>
         <div class="mb-3">
             <label for="title" class="form-label">Nis</label>
             <input type="number" name="nis" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $edit->nis }}">
@@ -35,7 +36,7 @@
             <label for="title" class="form-label">Class</label>
             <input type="text" name="class" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $edit->class }}">
         </div>
-        <button type="submit" class="btn btn-primary">edit</button>
+        <button type="submit" class="btn btn-success">Save</button>
     </form>
 </div>
 @endsection
