@@ -43,4 +43,10 @@
         <button type="submit" class="btn btn-primary">Create</button>
       </form>
 </div>
+
+<script>
+    setTimeout(() => {
+        $('message').hide();
+    }, 5000);
+</script>
 @endsection
