@@ -6,11 +6,11 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Nis</label>
-            <input type="number" name="nis" class="form-control @error('nis') is_invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
           </div>
         <div class="mb-3">
           <label for="title" class="form-label">Name</label>
-          <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="text" name="name" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">Gender</label>
