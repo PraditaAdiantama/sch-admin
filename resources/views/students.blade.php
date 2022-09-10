@@ -3,8 +3,12 @@
 @section('container')
     <h1>Students</h1>
     @if ($message = Session::get('success'))
-    <div class="alert alert-success" role="alert">
+    {{-- <div class="alert" role="alert">
         {{ $message }}
+    </div> --}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
     <div class="row g-3">    
@@ -22,7 +26,5 @@
                 <h3 class="p-3 pb-5 ">Add Students +<h3>
             </a>
         </div>
-    </div>
-    
-    
+    </div>  
 @endsection

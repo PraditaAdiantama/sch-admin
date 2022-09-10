@@ -28,7 +28,7 @@ class StudentController extends Controller
         ]);
     }
     
-    public function createData(Request $request){
+    public function createData(Request $request,Student $id){
         $validate = $request->validate([
                         'nis' => 'required',
                         'name' => 'required|min:2|max:100',
@@ -39,9 +39,9 @@ class StudentController extends Controller
                         'class' => 'required'
                 ]);
 
-        $student = $request->all();
+        $students = $request->all();
         
-        Student::create($student);
+        Student::create($students);
         return redirect()->route('students')->with('success', 'Data added successfully');
     }
 

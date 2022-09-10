@@ -38,5 +38,25 @@
         </table>
     </div>
     <a href="/modif/editData/{{ $student->id }}" class="btn btn-primary">Edit</a>
-    <a href="/modif/delete/{{ $student->id }}" class="btn btn-danger">Delete</a>
+    <a class="btn btn-danger" id="myInput" data-bs-toggle="modal" data-bs-target="#myModal">Delete</a>
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmation</h5>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure to delete {{ $student->name }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button"  class="btn btn-danger"><a class="text-decoration-none text-light" href="/modif/delete/{{ $student->id }}">Delete</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+    </script>
 @endsection
