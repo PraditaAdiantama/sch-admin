@@ -11,7 +11,7 @@ class StudentController extends Controller
     public function index(){
         return view('students',[
             'title' => "Siswa",
-            'students' => Student::all()
+            'students' => Student::paginate(5)
         ]);
     }
 
@@ -28,7 +28,7 @@ class StudentController extends Controller
         ]);
     }
     
-    public function createData(Request $request,Student $id){
+    public function createData(Request $request){
         $validate = $request->validate([
                         'nis' => 'required',
                         'name' => 'required|min:2|max:100',
@@ -41,8 +41,8 @@ class StudentController extends Controller
 
         $students = $request->all();
         
-        Student::create($students);
-        return redirect()->route('students')->with('success', 'Data added successfully');
+        $student = Student::create($students);
+        return redirect()->to('student/' . $student->id)->with('success', 'Data edit successfully');
     }
 
     public function edit($id){
@@ -57,7 +57,7 @@ class StudentController extends Controller
         $editData = Student::find($id);
         $editData->update($request->all());
     
-        return redirect()->route('students')->with('success', 'Data edit successfully');
+        return redirect()->to('student/'.$id)->with('success', 'Data edit successfully');
     }
     
     public function delete($id){
