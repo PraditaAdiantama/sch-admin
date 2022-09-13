@@ -12,7 +12,7 @@
         <table class="table">
             <thead>
                 <tr>
-                  <th>Id</th>
+                  <th>No</th>
                   <th>Nis</th>
                   <th>Name</th>
                   <th>Address</th>
@@ -21,9 +21,9 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($students as $student)
+            @foreach ($students as $index => $student)
                 <tr>
-                    <td>{{ $student->id }}</td>
+                    <th scope="row">{{ $index + $students->firstitem() }}</th>
                     <td>{{ $student->nis }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->address }}</td>
