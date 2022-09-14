@@ -6,7 +6,7 @@
             {{ $message }}
         </div>
     @endif
-    <h1 class="pb-3">Detail Student</h1>
+    <h1 class="pb-2">Detail Student</h1>
     <div class="col-lg-5">
         <table class="table">
             <tbody>
@@ -37,8 +37,8 @@
             </tbody>
         </table>
     </div>
-    <a href="/modif/editData/{{ $student->id }}" class="btn btn-primary">Edit</a>
-    <a class="btn btn-danger" id="myInput" data-bs-toggle="modal" data-bs-target="#myModal">Delete</a>
+    <a href="/modif/editData/{{ $student->id }}" class="btn btn-primary"><i class="bi bi-pencil-square px-1"></i>Edit</a>
+    <a class="btn btn-danger" id="myInput" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-trash px-1"></i>Delete</a>
 
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
