@@ -2,8 +2,9 @@
 
 @section('container')
     @if ($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ $message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
     <h1 class="pb-2">Detail Student</h1>

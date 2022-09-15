@@ -1,17 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="">
-        <div class="d-flex justify-content-between align-items-center">
-            <h1>Students</h1>
-            <a href="modif/create" class="btn btn-success"><i class="bi bi-plus-circle-fill p-1"></i> Add New Student</a>
-        </div>
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ $message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    <div id="table-header">
+        <h1 class="text-light m-0">Student</h1>
+        <a href="modif/create" class="btn btn-success"><i class="bi bi-plus-circle-fill p-1"></i> Add New Student</a>
+    </div>
+    <div class="tbl-container">
         <div class="row g-3">    
             <table class="table">
                 <thead>
@@ -33,7 +33,7 @@
                         <td>{{ $student->address }}</td>
                         <td>{{ $student->class }}</td>
                         <td>
-                            <button class="btn btn-primary"><a href="student/{{ $student->id }}" class="text-decoration-none text-light">Detail</a></button>
+                            <a href="student/{{ $student->id }}" class="text-decoration-none text-light btn btn-primary">Detail</a>
                         </td>
                     </tr>
                 @endforeach

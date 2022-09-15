@@ -36,7 +36,7 @@
             <label for="title" class="form-label">Class</label>
             <input type="text" name="class" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $edit->class }}">
         </div>
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-success"><i class="bi bi-save px-1"></i></i>Save</button>
     </form>
 </div>
 @endsection

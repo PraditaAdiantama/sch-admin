@@ -39,9 +39,9 @@ class StudentController extends Controller
                         'class' => 'required'
                 ]);
 
-        $students = $request->all();
+        $student = $request->all();
         
-        $student = Student::create($students);
+        $student = Student::create($student);
         return redirect()->to('student/' . $student->id)->with('success', 'Data edit successfully');
     }
 
