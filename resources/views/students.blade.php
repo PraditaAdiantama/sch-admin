@@ -97,12 +97,13 @@
         <div class="row g-3">    
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr id="table-title">
                       <th>No</th>
                       <th>Nis</th>
                       <th>Name</th>
                       <th>Address</th>
                       <th>Class</th>
+                      <th>Date Created</th>
                       <th>Action</th>
                     </tr>
                 </thead>
@@ -114,6 +115,7 @@
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->address }}</td>
                         <td>{{ $student->class }}</td>
+                        <td>{{ $student->create_at->diffForHumans() }}</td>
                         <td>
                             <a href="student/{{ $student->id }}" class="text-decoration-none text-light btn btn-primary">Detail</a>
                             <a href="modif/delete/{{ $student->id }}" class="text-decoration-none text-light btn btn-danger">Delete</a>

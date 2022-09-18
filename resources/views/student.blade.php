@@ -7,7 +7,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <h1 class="pb-2">Detail Student</h1>
+    <div style="background-color: #435d7d;width: 72vh;">    
+        <h1 class="px-3 p-2 text-light">Detail Student</h1>
+    </div>
     <div class="col-lg-5">
         <table class="table">
             <tbody>

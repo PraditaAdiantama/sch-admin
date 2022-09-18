@@ -9,5 +9,6 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $guarded=['id'];
+    protected $guarded= ['id'];
+    protected $dates = ['create_at'];
 }
