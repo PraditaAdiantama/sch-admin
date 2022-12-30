@@ -1,2 +1,2 @@
 ## School Admin
-Simple curd website with laravel.
+Simple crud website with laravel.
