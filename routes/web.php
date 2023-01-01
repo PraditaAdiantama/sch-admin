@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ModifController;
+use App\Http\Controllers\Post\EditDataStudent;
+use App\Http\Controllers\Post\StoreDataStudent;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,14 +22,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/students',[StudentController::class, 'index'])->name('students');
-Route::get('/student/{student}',[StudentController::class, 'show'])->name('studentEdit');
+Route::get('/students', [StudentController::class, 'index'])->name('students');
+Route::get('/student/{student}', [StudentController::class, 'show'])->name('studentEdit');
 
+Route::post('/createdata', StoreDataStudent::class)->name('create_data');
+Route::get('/modif/editData/{edit}', [StudentController::class, 'edit']);
+Route::post('/editData/{edit}', EditDataStudent::class)->name('edit_data');
 
-Route::get('/modif/create',[StudentController::class,'create']);
-Route::post('/modif/createData',[StudentController::class, 'createData']);
-
-Route::get('/modif/editData/{edit}',[StudentController::class, 'edit']);
-Route::post('/modif/editData/{edit}',[StudentController::class, 'editData']);
-
-Route::get('/modif/delete/{id}',[StudentController::class, 'delete'])->name('delete');
+Route::get('/modif/delete/{id}', [StudentController::class, 'delete'])->name('delete');

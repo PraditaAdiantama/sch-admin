@@ -8,62 +8,32 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index(){
-        return view('students',[
-            'title' => "Siswa",
-            'students' => Student::paginate(5)
+    public function index(Request $request)
+    {
+        if($request->has('search')){
+            $students = Student::where('name', 'LIKE', '%' .$request->search.'%')->paginate(5);
+        }else{
+            $students = Student::paginate(5);
+        }
+        return view('students', [
+            'title' => "Student",
+            'students' => $students
         ]);
     }
 
-    public function show($id){
-        return view('student',[
+    public function show($id)
+    {
+        return view('student', [
             'title' => 'Detail',
             'student' => Student::find($id)
         ]);
     }
-    
-    public function create(){
-        return view('modif.create', [
-            'title' => 'Modif'
-        ]);
-    }
-    
-    public function createData(Request $request){
-        $validate = $request->validate([
-                        'nis' => 'required',
-                        'name' => 'required|min:2|max:100',
-                        'gender' => 'required',
-                        'address' => 'required|max:100',
-                        'birth_place' => 'required|max:100',
-                        'birth_date' => 'required|date',
-                        'class' => 'required'
-                ]);
 
-        $student = $request->all();
-        
-        $student = Student::create($student);
-        return redirect()->to('student/' . $student->id)->with('success', 'Data edit successfully');
-    }
-
-    public function edit($id){
-        return view('modif.edit',[
-            'title' => 'Edit',
-            'edit' => Student::find($id)
-        ]);
-        return view('student');   
-    }
-    
-    public function editData(Request $request, $id){
-        $editData = Student::find($id);
-        $editData->update($request->all());
-    
-        return redirect()->to('student/'.$id)->with('success', 'Data edit successfully');
-    }
-    
-    public function delete($id){
+    public function delete($id)
+    {
         $delete = Student::find($id);
         $delete->delete();
-        
+
         return redirect()->route('students')->with('success', 'Data delete successfully');
     }
 }

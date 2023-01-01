@@ -40,8 +40,89 @@
             </tbody>
         </table>
     </div>
-    <a href="/modif/editData/{{ $student->id }}" class="btn btn-primary"><i class="bi bi-pencil-square px-1"></i>Edit</a>
-    <a class="btn btn-danger" id="myInput" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-trash px-1"></i>Delete</a>
+    <a href="" data-bs-toggle="modal" data-bs-target="#myEditModal" class="btn btn-primary"><i class="bx bxs-edit px-1"></i>Edit</a>
+    <a class="btn btn-danger" id="myInput" data-bs-toggle="modal" data-bs-target="#myModal"><i class='bx bx-trash px-1'></i>Delete</a>
+
+    <div id="myEditModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create Student</h5>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('edit_data', $student->id) }}" method="POST">
+                    @csrf
+                    <div class="mb-3 mt-0">
+                        <label for="title" class="form-label">Nis</label>
+                        <input type="number" name="nis" class="form-control @error('nis') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->nis }}">
+                        @error('nis')
+                            <div class="invalid-feedback" id="test">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                      </div>
+                    <div class="mb-3">
+                      <label for="title" class="form-label">Name</label>
+                      <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->name }}">
+                      @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Gender</label>
+                        <select class="form-select" name="gender" aria-label="Default select example">
+                            <option value="Men">Man</option>
+                            <option value="Women">Women</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control  @error('address') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->address }}">
+                        @error('address')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Birth Place</label>
+                        <input type="text" name="birth_place" class="form-control  @error('birth_place') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->birth_place }}">
+                        @error('birth_place')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Birth Date</label>
+                        <input type="date" name="birth_date" class="form-control"  @error('birth_date') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->birth_date }}">
+                        @error('birth_date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Class</label>
+                        <input type="text" name="class" class="form-control  @error('class') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $student->class }}">
+                        @error('class')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">

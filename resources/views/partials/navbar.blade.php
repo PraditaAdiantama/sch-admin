@@ -1,15 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container">
-      <a class="navbar-brand" href="/">School Admin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav px-3 mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link {{ ($title == 'Siswa' | $title == 'Detail' ? 'active' : '') }}" href="/students">Student</a>
-          </li>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="">
+            <li class="nav-item search-bar">
+                <i class='bi bi-search'></i>
+                <form action="/students" method="GET">
+                    <input type="search" name="search" placeholder="Search for student." class="">
+                </form>
+            </li>
         </ul>
-      </div>
+    </nav>
+    <div class="">
+        <h3>Database</h3>
+        <ul class="d-flex">
+          <li><a href="/" class="{{ $title == 'Home' ? 'text-active' : '' }}">Home</a></li>
+          <li><a href="{{ route('students') }}" class="{{ $title == 'Student' ? 'text-active' : '' }}">Student</a></li>
+        </ul>
     </div>
-  </nav>
+    <hr>
+</div>
