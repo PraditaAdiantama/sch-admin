@@ -6,15 +6,22 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+<<<<<<< HEAD
         "doctrine/dbal": "^3.4",
         "guzzlehttp/guzzle": "^7.2",
         "itsgoingd/clockwork": "^5.1",
+=======
+        "guzzlehttp/guzzle": "^7.2",
+>>>>>>> a622e73 (init)
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
+<<<<<<< HEAD
         "barryvdh/laravel-debugbar": "^3.7",
+=======
+>>>>>>> a622e73 (init)
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
@@ -63,6 +70,10 @@
             "pestphp/pest-plugin": true
         }
     },
+<<<<<<< HEAD
     "minimum-stability": "dev",
+=======
+    "minimum-stability": "stable",
+>>>>>>> a622e73 (init)
     "prefer-stable": true
 }
