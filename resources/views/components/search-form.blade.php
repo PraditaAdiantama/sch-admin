@@ -1,4 +1,4 @@
-<form class="input-group mb-3" action="{{ $action }}" style="width: 15rem">
+<form class="input-group mb-3" action="{{ $action }}" method="GET" style="width: 15rem">
     <button class="btn bg-white border border-end-0" type="submit" id="button-addon1">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
             style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
@@ -7,6 +7,6 @@
             </path>
         </svg>
     </button>
-    <input type="text" class="form-control border-start-0" placeholder="{{ $placeholder }}"
+    <input type="text" name="search_student" class="form-control border-start-0" placeholder="{{ $placeholder }}"
         aria-label="Example text with button addon" aria-describedby="button-addon1">
 </form>
