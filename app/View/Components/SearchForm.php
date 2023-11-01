@@ -13,7 +13,8 @@ class SearchForm extends Component
      */
     public function __construct(
         public string $action,
-        public string $placeholder
+        public string $placeholder,
+        public string $name
     )
     {
         //
