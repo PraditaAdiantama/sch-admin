@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Major;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MajorController extends Controller
 {
@@ -16,8 +17,20 @@ class MajorController extends Controller
     public function index()
     {
         $majors = Major::all();
+        $major_options = [
+            "Broadcast TV & Film",
+            "Desain Komunikasi Visual",
+            "Kimia Analisis",
+            "Teknik Instalasi Tenaga Listrik",
+            "Teknik Otomasi Industri",
+            "Teknik Jaringan Komputer dan Telekomunikasi",
+            "Teknik Otomotif",
+            "Teknik Las",
+            "Teknik Mesin",
+        ];
         return view("pages.majors.home", [
             "majors" => $majors,
+            "major_options" => $major_options,
             "title" => "jurusan"
         ]);
     }
@@ -27,9 +40,14 @@ class MajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function students(Major $major)
     {
-        //
+        $students = Student::where("major_id", $major->id)->get();
+        return view("pages.majors.students", [
+            "students" => $students,
+            "major" => $major,
+            "title" => "jurusan"
+        ]);
     }
 
     /**
@@ -40,7 +58,18 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $majors = Validator::make($request->all(), [
+            "name" => "required|string|min:3",
+            "school_year" => "required|string|min:3",
+            "grade" => "required|in:X,XI,XII|string",
+            "major" => "required|in:Broadcast TV & Film,Desain Komunikasi Visual,Kimia Analisis,Teknik Instalasi Tenaga Listrik,Teknik Otomasi Industri,Teknik Jaringan Komputer dan Telekomunikasi,Teknik Otomotif,Teknik Las,Teknik Mesin"
+        ]);
+
+        if ($majors->fails()) return redirect("classes")->withErrors(["message" => $majors->errors()]);
+
+        Major::create($majors->validated());
+
+        return redirect("classes")->with("success", "Berhasil");
     }
 
     /**
@@ -51,9 +80,8 @@ class MajorController extends Controller
      */
     public function show(Major $major)
     {
-        $students = Student::where("major_id", $major->id)->get();
-        return view("pages.majors.students", [
-            "students" => $students,
+        return view("pages.majors.detail", [
+            "major" => $major,
             "title" => "jurusan"
         ]);
     }
@@ -78,7 +106,18 @@ class MajorController extends Controller
      */
     public function update(Request $request, Major $major)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "name" => "string|min:3",
+            "school_year" => "string|min:3",
+            "grade" => "in:X,XI,XII|string",
+            "major" => "in:Broadcast TV & Film,Desain Komunikasi Visual,Kimia Analisis,Teknik Instalasi Tenaga Listrik,Teknik Otomasi Industri,Teknik Jaringan Komputer dan Telekomunikasi,Teknik Otomotif,Teknik Las,Teknik Mesin"
+        ]);
+
+        if($validator->fails()) return redirect("classes")->withErrors(["message" => $validator->errors()]);
+
+        $major->update($request->all());
+
+        return redirect()->to("classes/$major->id");
     }
 
     /**
@@ -89,6 +128,8 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+
+        return redirect();
     }
 }
