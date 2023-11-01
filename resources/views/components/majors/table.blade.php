@@ -4,15 +4,16 @@
             <td>{{ $key + 1 }}</td>
             <td>{{ $major->name }}</td>
             <td class="d-flex justify-content-center gap-3">
-                <x-form.button-link link="{{ route('majors.students', $major->id) }}" text="Siswa" type="primary" />
+                <x-form.button-link link="{{ route('classes.show', $major->id) }}" text="Detail" type="primary" />
                 <form action="">
-                    <button class="btn btn-danger">Delete</button>
+                    @csrf
+                    <button class="btn btn-danger fw-bold py-2">Delete</button>
                 </form>
             </td>
         </tr>
     @empty
         <tr>
-            <td colspan="100%">
+            <td colspan="100%" class="py-5 fs-2 fw-bold">
                 Data tidak ditemukan
             </td>
         </tr>
