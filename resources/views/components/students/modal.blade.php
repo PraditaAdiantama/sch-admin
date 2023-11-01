@@ -10,7 +10,7 @@
             <x-form.textbox name="birth_place" label="Tempat Lahir" type="text" required placeholder="Tempat Lahir" />
         </div>
         <x-form.selectbox label="Jenis Kelamin" name="gender">
-            <option value="Laki-laki">Laki-laki</option>
+            <option value="laki-laki">Laki-laki</option>
             <option value="perempuan">Perempuan</option>
         </x-form.selectbox>
         <x-form.textbox name="birth_date" label="Tanggal Lahir" type="date" required />
