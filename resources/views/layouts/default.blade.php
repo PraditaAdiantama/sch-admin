@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset("/css/bootstrap.css")}}">
     <script src="{{asset("/js/bootstrap.js")}}"></script>
 </head>
-<body style="background-color: #F3F4FF;">
+<body class="bg-slate">
     <div class="d-flex">
         @include('components.sidebar')
         <div class="w-100">
