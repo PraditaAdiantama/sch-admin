@@ -5,13 +5,13 @@
             <td>{{ $student->nis }}</td>
             <td>{{ $student->name }}</td>
             <td>{{ $student->major->name }}</td>
-            <td>{{ $student->gender }}</td>
-            <td class="d-flex gap-3 py-3">
+            <td class="text-capitalize">{{ $student->gender }}</td>
+            <td class="d-flex gap-3 justify-content-center">
                 <x-form.button-link link="{{ route('students.show', $student->id) }}" type="primary" text="Detail" />
                 <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                     @csrf
                     @method("DELETE")
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger fw-bold py-2">Delete</button>
                 </form>
             </td>
         </tr>
