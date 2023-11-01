@@ -1,3 +1,7 @@
+:root{
+    --slate: #F3F4FF;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -18,16 +22,24 @@
     border-radius: 0 10px 0 0;
 }
 
-.table tbody tr td:nth-child(1){
+.table tbody tr:last-child td:first-child{
     border-radius:  0 0 0 10px;
 }
 
-.table tbody tr td:last-child{
+.table tbody tr:last-child td:last-child{
     border-radius: 0 0 10px 0;
 }
 
 .table tbody tr{
     vertical-align: middle;
+}
+
+.table tbody tr td{
+    background-color: var(--slate);
+}
+
+.bg-slate{
+    background-color: var(--slate);
 }
 
 .container-sch-admin{
