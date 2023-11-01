@@ -6,7 +6,7 @@
             label="Nama Siswa" disabled />
     </div>
     <div class="d-flex justify-content-between">
-        <x-form.textbox style="width: 29rem;" name="" type="text" value="{{ $student->gender }}"
+        <x-form.textbox style="width: 29rem;" name="" type="text" class="text-capitalize" value="{{ $student->gender }}"
             label="Jenis Kelamin" disabled />
         <x-form.textbox style="width: 29rem;" name="" type="text" value="{{ $student->address }}"
             label="Alamat Siswa" disabled />
