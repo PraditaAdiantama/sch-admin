@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return view('home', [
         'title' => 'Home'
     ]);
@@ -37,6 +38,11 @@ Route::post('/editData/{edit}', EditDataStudent::class)->name('edit_data');
 Route::get('/modif/delete/{id}', [StudentController::class, 'delete'])->name('delete');
 =======
     return view('welcome');
+=======
+    return view('welcome', [
+        "title" => "welcome"
+    ]);
+>>>>>>> d59ea3d (refactor: change prefix majors to classes and crud classes)
 });
 
 Route::prefix("students")->group(function () {
@@ -48,8 +54,12 @@ Route::prefix("students")->group(function () {
     Route::put("/{student}", [StudentController::class, "update"])->name("students.update");
 });
 
-Route::prefix("majors")->group(function () {
-    Route::get("/", [MajorController::class, "index"])->name("majors.index");
-    Route::get("/{major}/students", [MajorController::class, "show"])->name("majors.students");
+Route::prefix("classes")->group(function () {
+    Route::get("/", [MajorController::class, "index"])->name("classes.index");
+    Route::get("/{major}", [MajorController::class, "show"])->name("classes.show");
+    Route::get("/{major}/students", [MajorController::class, "students"])->name("classes.students");
+
+    Route::post("/", [MajorController::class, "store"])->name("classes.store");
+    Route::put("/{major}", [MajorController::class, "update"])->name("classes.update");
 });
 >>>>>>> a622e73 (init)
