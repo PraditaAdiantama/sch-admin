@@ -30,6 +30,8 @@
                 <option value="" disabled selected>Data tidak ditemukan</option>
             @endforelse
         </x-form.selectbox>
-        <button class="btn btn-success">Edit siswa</button>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success">Edit siswa</button>
+        </div>
     </form>
 </x-modal.index>
