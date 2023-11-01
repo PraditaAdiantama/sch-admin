@@ -50,10 +50,16 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $students = Student::all();
         $majors = Major::all();
+
+        if ($request->has('search_student')) {
+            $students = Student::where("name", "LIKE", '%' . $request->search_student . '%')->get();
+        } else {
+            $students = Student::all();
+        }
+        
         return view("pages.students.home", [
             "title" => "siswa",
             "students" => $students,
@@ -66,10 +72,6 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -89,7 +91,7 @@ class StudentController extends Controller
             "major_id" => "required|exists:majors,id|integer"
         ]);
 
-        if ($student->fails()) return redirect("/students")->withErrors(["message", "Telah terjadi kesalahan"]);
+        if ($student->fails()) return redirect("/students")->withErrors(["message", $student->errors()]);
 
         Student::create($student->validated());
 
@@ -142,8 +144,8 @@ class StudentController extends Controller
             "major_id" => "exists:majors,id|integer"
         ]);
 
-        if ($student_validator->fails()) return redirect()->withErrors(["message" => "Telah terjadi kesalahan"]);
-        
+        if ($student_validator->fails()) return redirect()->withErrors(["message" => $student_validator->errors()]);
+
         $student->update($request->all());
 
         return redirect("students");
