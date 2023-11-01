@@ -7,9 +7,9 @@
                 {{ $errors }}
             @endif
             <x-navbar title="Siswa">
-                <x-search-form action="tes" placeholder="Cari siswa" />
+                <x-search-form action="{{ route('students.index') }}" name="search_student" placeholder="Cari siswa" />
             </x-navbar>
-            <div class="bg-white pt-4 px-3 pb-2 rounded">
+            <div class="bg-white shadow pt-4 px-3 pb-2 rounded">
                 <x-students.modal :majors="$majors" />
                 <div class="d-flex justify-content-end mb-3">
                     <x-modal.trigger text="Tambah" />
