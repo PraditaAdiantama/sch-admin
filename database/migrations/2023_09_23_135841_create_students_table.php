@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer("nis");
             $table->string("name");
             $table->enum("gender", [
-                "Laki-laki",
+                "laki-laki",
                 "perempuan"
             ]);
             $table->string("address");
