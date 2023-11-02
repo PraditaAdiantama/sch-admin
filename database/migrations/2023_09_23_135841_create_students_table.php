@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string("address");
             $table->date("birth_date");
             $table->string("birth_place");
-            $table->foreignId("major_id")->references("id")->on("majors");
+            $table->foreignId("class_id")->references("id")->on("classes");
             $table->timestamps();
         });
     }
