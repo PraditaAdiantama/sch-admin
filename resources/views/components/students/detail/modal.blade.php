@@ -21,13 +21,13 @@
             </option>
         </x-form.selectbox>
         <x-form.textbox name="birth_date" label="Tanggal Lahir" type="date" value="{{ $student->birth_date }}" />
-        <x-form.selectbox label="Jurusan" name="major_id">
-            @forelse ($majors as $major)
-                <option value="{{ $major->id }}" {{ $major->id == $student->major->id ? 'selected' : '' }}>
-                    {{ $major->name }}
+        <x-form.selectbox label="Jurusan" name="class_id">
+            @forelse ($classes as $class)
+                <option value="{{ $class->id }}" {{ $class->id == $student->class->id ? 'selected' : '' }}>
+                    {{ $class->name }}
                 </option>
             @empty
-                <option value="" disabled selected>Data tidak ditemukan</option>
+                <option value="null" disabled selected>Data tidak ditemukan</option>
             @endforelse
         </x-form.selectbox>
         <div class="d-flex justify-content-end">
