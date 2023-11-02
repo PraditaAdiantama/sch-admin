@@ -17,5 +17,5 @@
         <x-form.textbox style="width: 29rem;" name="" type="text" value="{{ $student->birth_place }}"
             label="Tempat Lahir" disabled />
     </div>
-    <x-form.textbox name="" label="Jurusan" type="text" value="{{ $student->major->name }}" disabled />
+    <x-form.textbox name="" label="Jurusan" type="text" value="{{ $student->class->name }}" disabled />
 </div>
