@@ -4,9 +4,9 @@
     <x-navbar title="Detail Siswa">
         <x-modal.trigger text="Edit Siswa" />
     </x-navbar>
+    <x-students.detail.modal :classes="$classes" :student="$student" />
 
-    <x-students.detail.modal :majors="$majors" :student="$student" />
-    <div class="mx-auto" style="max-width: 1000px">
+    <div class="mx-auto container-sch-admin">
         <x-students.detail.index :student="$student" />
     </div>
 @endsection
