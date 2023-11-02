@@ -4,7 +4,7 @@
             <td>{{ $key + 1 }}</td>
             <td>{{ $student->nis }}</td>
             <td>{{ $student->name }}</td>
-            <td>{{ $student->major->name }}</td>
+            <td>{{ $student->class->name }}</td>
             <td class="text-capitalize">{{ $student->gender }}</td>
             <td class="d-flex gap-3 justify-content-center">
                 <x-form.button-link link="{{ route('students.show', $student->id) }}" type="primary" text="Detail" />

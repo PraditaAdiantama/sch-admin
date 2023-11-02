@@ -14,13 +14,15 @@
             <option value="perempuan">Perempuan</option>
         </x-form.selectbox>
         <x-form.textbox name="birth_date" label="Tanggal Lahir" type="date" required />
-        <x-form.selectbox label="Jurusan" name="major_id">
-            @forelse ($majors as $major)
-                <option value="{{ $major->id }}">{{ $major->name }}</option>
+        <x-form.selectbox label="Jurusan" name="class_id">
+            @forelse ($classes as $class)
+                <option value="{{ $class->id }}">{{ $class->name }}</option>
             @empty
                 <option value="" disabled selected>Data tidak ditemukan</option>
             @endforelse
         </x-form.selectbox>
-        <button class="btn btn-success">Tambah</button>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary py-2">Tambah</button>
+        </div>
     </form>
 </x-modal.index>
