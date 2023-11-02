@@ -7,6 +7,6 @@
             </path>
         </svg>
     </button>
-    <input type="text" name="search_student" class="form-control border-start-0" placeholder="{{ $placeholder }}"
-        aria-label="Example text with button addon" aria-describedby="button-addon1">
+    <input type="text" name="{{ $name }}" class="form-control border-start-0"
+        placeholder="{{ $placeholder }}" aria-label="Example text with button addon" aria-describedby="button-addon1">
 </form>
