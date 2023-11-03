@@ -19,9 +19,13 @@
     },
     "require-dev": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "barryvdh/laravel-debugbar": "^3.7",
 =======
 >>>>>>> a622e73 (init)
+=======
+        "barryvdh/laravel-debugbar": "^3.9",
+>>>>>>> 0f032aa (feat: add laravel-debugbar)
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
