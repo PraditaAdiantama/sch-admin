@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 use App\Http\Controllers\ClassController;
@@ -41,4 +39,3 @@ Route::prefix("classes")->group(function () {
     Route::post("/", [ClassController::class, "store"])->name("classes.store");
     Route::put("/{class}", [ClassController::class, "update"])->name("classes.update");
 });
->>>>>>> e644ff5 (refactor: change route major to class and change controller)
