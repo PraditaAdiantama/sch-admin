@@ -9,21 +9,12 @@ class Student extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    protected $guarded= ['id'];
-    protected $dates = ['create_at'];
-=======
     protected $guarded = [
         "id"
     ];
 
-    protected $with = [
-        "major"
-    ];
-
-    public function major()
+    public function class()
     {
-        return $this->belongsTo(Major::class);
+        return $this->belongsTo(ClassModel::class);
     }
->>>>>>> a622e73 (init)
 }

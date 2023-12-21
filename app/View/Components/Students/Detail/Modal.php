@@ -12,7 +12,7 @@ class Modal extends Component
      * @return void
      */
     public function __construct(
-        public $majors,
+        public $classes,
         public $student
     ) {
         //

@@ -1,43 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Models\Student;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
-
-class StudentController extends Controller
-{
-    public function index(Request $request)
-    {
-        if($request->has('search')){
-            $students = Student::where('name', 'LIKE', '%' .$request->search.'%')->paginate(5);
-        }else{
-            $students = Student::paginate(5);
-        }
-        return view('students', [
-            'title' => "Student",
-            'students' => $students
-        ]);
-    }
-
-    public function show($id)
-    {
-        return view('student', [
-            'title' => 'Detail',
-            'student' => Student::find($id)
-        ]);
-    }
-
-    public function delete($id)
-    {
-        $delete = Student::find($id);
-        $delete->delete();
-
-        return redirect()->route('students')->with('success', 'Data delete successfully');
-=======
-use App\Models\Major;
+use App\Http\Controllers\Controller;
+use App\Models\ClassModel;
 use App\Models\Student;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -52,18 +17,21 @@ class StudentController extends Controller
      */
     public function index(Request $request): View
     {
-        $majors = Major::all();
+        $classes = ClassModel::all();
+        $students = Student::query();
 
         if ($request->has('search_student')) {
-            $students = Student::where("name", "LIKE", '%' . $request->search_student . '%')->get();
+            $students->where('name', 'LIKE', '%' . $request->search_student . '%');
         } else {
-            $students = Student::all();
+            $students = $students->with('class');
         }
-        
+
+        $students = $students->get();
+
         return view("pages.students.home", [
             "title" => "siswa",
             "students" => $students,
-            "majors" => $majors
+            "classes" => $classes
         ]);
     }
 
@@ -88,7 +56,7 @@ class StudentController extends Controller
             "address" => "required|min:3|string",
             "birth_date" => "required|date",
             "birth_place" => "required|string|min:3",
-            "major_id" => "required|exists:majors,id|integer"
+            "class_id" => "required|exists:classes,id|integer"
         ]);
 
         if ($student->fails()) return redirect("/students")->withErrors(["message", $student->errors()]);
@@ -106,11 +74,11 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $majors = Major::all();
+        $classes = ClassModel::all();
         return view("pages.students.detail", [
             "student" => $student,
-            "title" => "siswa",
-            "majors" => $majors
+            "classes" => $classes,
+            "title" => "siswa"
         ]);
     }
 
@@ -162,6 +130,5 @@ class StudentController extends Controller
         $student->delete();
 
         return redirect()->back();
->>>>>>> a622e73 (init)
     }
 }

@@ -25,6 +25,6 @@ class Modal extends Component
      */
     public function render()
     {
-        return view('components.majors.modal');
+        return view('components.classes.modal');    
     }
 }

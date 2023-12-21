@@ -12,7 +12,8 @@ class Modal extends Component
      * @return void
      */
     public function __construct(
-        public $major
+        public $class,
+        public $majors
     )
     {
         //
@@ -25,6 +26,6 @@ class Modal extends Component
      */
     public function render()
     {
-        return view('components.majors.detail.modal');
+        return view('components.classes.detail.modal');
     }
 }

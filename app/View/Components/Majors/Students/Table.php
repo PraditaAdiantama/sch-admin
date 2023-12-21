@@ -24,6 +24,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.majors.students.table');
+        return view('components.classes.students.table');
     }
 }

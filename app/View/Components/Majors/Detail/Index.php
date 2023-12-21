@@ -12,7 +12,7 @@ class Index extends Component
      * @return void
      */
     public function __construct(
-        public $major
+        public $class
     )
     {
         //
@@ -25,6 +25,6 @@ class Index extends Component
      */
     public function render()
     {
-        return view('components.majors.detail.index');
+        return view('components.classes.detail.index');
     }
 }

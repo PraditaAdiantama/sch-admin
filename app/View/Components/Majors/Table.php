@@ -12,7 +12,7 @@ class Table extends Component
      * @return void
      */
     public function __construct(
-        public $majors
+        public $classes
     )
     {
         //
@@ -25,6 +25,6 @@ class Table extends Component
      */
     public function render()
     {
-        return view('components.majors.table');
+        return view('components.classes.table');
     }
 }
